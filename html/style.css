@@ -1,0 +1,161 @@
+* {
+  border-width:                 0;
+  margin:                       0;
+  padding:                      0;
+
+  /* No highlighting things.  It's not what mobile guy wants when he's pushing
+   * buttons. */
+  -webkit-touch-callout:        none;
+  -webkit-user-select:          none;
+  -khtml-user-select:           none;
+  -moz-user-select:             none;
+  -ms-user-select:              none;
+  user-select:                  none;
+}
+
+body {
+  background-color:             #000000;
+}
+
+a {
+  font-weight:                  bold;
+  color:                        #000000;
+  text-decoration:              none;
+}
+
+.level {
+  float:                        left;
+  clear:                        both;
+  width:                        0;
+}
+
+.date-stamp {
+  float:                        left;
+
+  margin:                       0;
+
+  height:                       4vh;
+  line-height:                  4vh;
+
+  font-size:                    3vh;
+  font-style:                   italic;
+  color:                        #bbbbbb;
+
+  white-space:                  nowrap;
+}
+
+.file-entry, .dir-entry {
+  float:                        left;
+
+  margin:                       0;
+
+  height:                       4vh;
+  line-height:                  4vh;
+
+  font-size:                    3vh;
+
+  white-space:                  nowrap;
+}
+
+.file-entry {
+  background-color:             #a09aa6;
+  background:                   linear-gradient(#f0eaf6, #908a96);
+  border-color:                 #a09aa6;
+  color:                        #000000;
+  padding-right:                9vw;
+}
+
+.dir-entry {
+  background-color:             #302a36;
+  background:                   linear-gradient(#302a36, #605a66);
+  color:                        #ffffff;
+  border-color:                 #302a36;
+  padding-left:                 9vw;
+}
+
+.file-entry a, .dir-entry a {
+  color:                        #ffffff;
+}
+
+.file-set-checkbox {
+  display:                      block;
+  float:                        left;
+  height:                       2vh;
+  width:                        3vw;
+  margin:                       1vh 3vw 1vh 3vw;
+}
+
+.big-button {
+  height:                       11vh;
+  width:                        98vw;
+  line-height:                  9vh;
+
+  font-size:                    4vh;
+  text-align:                   center;
+
+  border-width:                 1vh 1vw 1vh 1vw;
+  border-style:                 outset;
+  border-top-right-radius:      1vw 1vh;
+  border-top-left-radius:       1vw 1vh;
+  border-bottom-right-radius:   1vw 1vh;
+  border-bottom-left-radius:    1vw 1vh;
+
+  margin:                       1vh 1vw 1vh 1vw;
+}
+
+.select-all-area {
+  float:                        left;
+  color:                        #ffffff;
+  margin:                       2vh 0 2vh 0;
+}
+
+.button {
+  float:                        left;
+
+  width:                        18vw;
+  height:                       7vh;
+  line-height:                  7vh;
+
+  font-size:                    6vh;
+  text-align:                   center;
+
+  border-width:                 1vh 1vw 1vh 1vw;
+  border-style:                 outset;
+  border-top-right-radius:      1vw 1vh;
+  border-top-left-radius:       1vw 1vh;
+  border-bottom-right-radius:   1vw 1vh;
+  border-bottom-left-radius:    1vw 1vh;
+
+  margin-left:                  4vw;
+  margin-top:                   5vh;
+}
+.mplayer .button {
+  background-color:             #a09aa6;
+  background:                   radial-gradient(#f0eaf6, #908a96);
+  border-color:                 #a09aa6;
+  color:                        #000000;
+}
+.pianobar .button {
+  background-color:             #302a36;
+  background:                   radial-gradient(#302a36, #605a66);
+  color:                        #ffffff;
+  border-color:                 #302a36;
+}
+.button-caption {
+  float:                        left;
+
+  text-align:                   center;
+  font-weight:                  bold;
+
+  height:                       5vh;
+  line-height:                  5vh;
+  font-size:                    3vw;
+
+  width:                        18vw;
+  margin-left:                  5vw;
+  margin-right:                 1vw;
+
+  color:                        #ffffff;
+
+  background:                   linear-gradient(#001166, #000000);
+}

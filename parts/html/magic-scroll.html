@@ -1,0 +1,18 @@
+    <!-- Magic Scroll (mystery hack)
+      Scroll down one pixel on page load and reload events.  
+      
+      Without this feature, the page dimensions are calculated as if URL bar
+      is absent.  The URL bar is present, so there is vertical over-scroll the
+      height of the URL bar.  
+      
+      With this feature, the page dimensions are calculated with the URL bar
+      accounted for.
+    -->
+    <script>
+      window.onload = function() {
+        window.scroll(0, 1)
+      };
+
+      window.ondeviceorientation = window.onload;
+    </script>
+ 

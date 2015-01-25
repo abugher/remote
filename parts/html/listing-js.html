@@ -1,0 +1,16 @@
+    <script>
+      function selectAll(bigCheckBox) {
+        checkBoxes = document.getElementsByClassName('file-set-checkbox');
+        for(var i in checkBoxes) checkBoxes[i].checked = bigCheckBox.checked;
+      }
+
+      function toggleSelectAll() {
+        bigCheckBox = document.getElementById('big-checkbox');
+        if(bigCheckBox.checked) {
+          bigCheckBox.checked = false;
+        } else {
+          bigCheckBox.checked = true;
+        }
+        selectAll(bigCheckBox);
+      }
+    </script>

@@ -1,0 +1,81 @@
+    <script>
+      function pausePlay                (button) { sendOrder(button, '/cgi-bin/mplayer/pause-play.pl'           );}
+      function fullScreen               (button) { sendOrder(button, '/cgi-bin/mplayer/full-screen.pl'          );}
+      function quitMplayer              (button) { sendOrder(button, '/cgi-bin/mplayer/quit.pl'                 );}
+      function backwardTenSeconds       (button) { sendOrder(button, '/cgi-bin/mplayer/backward-ten-seconds.pl' );}
+      function forwardTenSeconds        (button) { sendOrder(button, '/cgi-bin/mplayer/forward-ten-seconds.pl'  );}
+      function backwardOneMinute        (button) { sendOrder(button, '/cgi-bin/mplayer/backward-one-minute.pl'  );}
+      function forwardOneMinute         (button) { sendOrder(button, '/cgi-bin/mplayer/forward-one-minute.pl'   );}
+      function previousFile             (button) { sendOrder(button, '/cgi-bin/mplayer/previous-file.pl'        );}
+      function nextFile                 (button) { sendOrder(button, '/cgi-bin/mplayer/next-file.pl'            );}
+      function volumeUp                 (button) { sendOrder(button, '/cgi-bin/mplayer/volume-up.pl'            );}
+      function volumeDown               (button) { sendOrder(button, '/cgi-bin/mplayer/volume-down.pl'          );}
+      function pianobarPausePlay        (button) { sendOrder(button, '/cgi-bin/pianobar/pause-play.pl'          );}
+      function pianobarNext             (button) { sendOrder(button, '/cgi-bin/pianobar/next.pl'                );}
+      function pianobarVolumeUp         (button) { sendOrder(button, '/cgi-bin/pianobar/volume-up.pl'           );}
+      function pianobarVolumeDown       (button) { sendOrder(button, '/cgi-bin/pianobar/volume-down.pl'         );}
+      function yay                      (button) { sendOrder(button, '/cgi-bin/pianobar/yay.pl'                 );}
+      function boo                      (button) { sendOrder(button, '/cgi-bin/pianobar/boo.pl'                 );}
+      function doNothing                (button) { sendOrder(button, '/cgi-bin/pianobar/do-nothing.pl'          );}
+
+      var fingerDown;
+      document.onmousedown      = function() { fingerDown = true;  }
+      document.ontouchstart     = function() { fingerDown = true;  }
+      document.onmouseup        = function() { fingerDown = false; }
+      document.ontouchend       = function() { fingerDown = false; }
+
+      var originalBackground    = '';
+
+      function sendOrder(button, action) {
+        originalBackground              = button.style.background;
+        button.style.background         = 'radial-gradient(#f0eaf6, #302a36)';
+        button.style.borderStyle        = 'inset';
+
+        // Create the object.  Doesn't initiate the connection.
+        var httpRequest = new XMLHttpRequest();
+
+        // Set the parameters.  Doesn't initiate the connection.
+        httpRequest.open('get', action, true);
+         
+        // Assign handlers for success and failure.
+        httpRequest.onreadystatechange = function(){
+          // Ready state 4 means the request is done
+          if(httpRequest.readyState === 4) {
+            // 200 is a successful return
+            if(httpRequest.status === 200) {
+            } else {
+              // Really need some failure handling.
+            }
+          }
+        }
+
+        // Do it.
+        httpRequest.send();
+
+        // OK.  We did it.  Now wait, then repeat if someone's holding down the button.
+        setTimeout(
+          function(){ 
+            if( fingerDown ) { 
+              // Pop up the button briefly, to illustrate repeated effect.
+              popUp(button);
+              setTimeout(
+                function(){
+                  // Iterate only if the button stayed pressed the whole time.
+                  if( fingerDown ) { 
+                    sendOrder(button, action); 
+                  }
+                },
+                50
+              );
+            } 
+          }, 
+          250
+        );
+      }
+
+      function popUp(button) {
+        button.style.borderStyle = 'outset';
+        button.style.background = originalBackground;
+      }
+    </script>
+
