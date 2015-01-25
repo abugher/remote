@@ -11,8 +11,8 @@ but that's the gist of it.
 
 Depends on:
   
-  mplayer
-  pianobar
+  - mplayer
+  - pianobar
 
 It probably relies on programs being in specific unreasonable places, and
 you'll probably need to touch some FIFO's, and there might just be a file
